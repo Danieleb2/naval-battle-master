@@ -9,6 +9,7 @@ import java.io.IOException;
  * The Main class of the Naval Battle game application.
  */
 public class Main extends Application {
+    //hola mundo
 
     /**
      * The main method, launches the JavaFX application.
