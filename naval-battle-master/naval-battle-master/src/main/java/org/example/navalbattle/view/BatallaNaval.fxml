@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.BatallaNavalController">
+    <Label text="Batalla Naval"/>
+    <GridPane fx:id="tableroPrincipal" gridLinesVisible="true">
+        <!-- Definir las celdas del tablero -->
+    </GridPane>
+    <GridPane fx:id="tableroPosicion" gridLinesVisible="true">
+        <!-- Definir las celdas del tablero -->
+    </GridPane>
+    <Button text="Disparar" onAction="#handleDisparo"/>
+    <Label fx:id="estadoJuego" text="Estado del juego"/>
+</VBox>
+
