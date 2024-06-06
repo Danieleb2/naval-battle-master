@@ -20,10 +20,10 @@ public class TableroCanvas extends Canvas {
             for (int j = 0; j < 10; j++) {
                 if (tablero.getBarco(i, j) != null) {
                     gc.setFill(Color.GRAY);
-                    gc.fillRect(i * 20, j * 20, 20, 20);
+                    gc.fillRect(i * 30, j * 30, 30, 30);
                 } else {
                     gc.setStroke(Color.BLACK);
-                    gc.strokeRect(i * 20, j * 20, 20, 20);
+                    gc.strokeRect(i * 30, j * 30, 30, 30);
                 }
             }
         }

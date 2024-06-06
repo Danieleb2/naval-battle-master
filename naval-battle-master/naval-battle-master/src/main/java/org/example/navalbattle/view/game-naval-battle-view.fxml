@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.navalbattle.controller.GameNavalBattleController">
+    <Canvas fx:id="canvasJugador" width="300" height="300" layoutX="14.0" layoutY="14.0"/>
+    <Canvas fx:id="canvasComputadora" width="300" height="300" layoutX="340.0" layoutY="14.0"/>
+    <Button layoutX="14.0" layoutY="330.0" text="Disparar" onMouseClicked="#manejarDisparo"/>
+</AnchorPane>

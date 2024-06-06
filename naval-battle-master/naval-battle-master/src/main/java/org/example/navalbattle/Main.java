@@ -1,21 +1,20 @@
 package org.example.navalbattle;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
-import org.example.navalbattle.view.GameNavalBattleStage;
-import java.io.IOException;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.Parent;
+
+import java.io.IOException;
 
 public class Main extends Application {
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("vista/BatallaNaval.fxml"));
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/org/example/navalbattle/view/GameNavalBattle.fxml"));
         primaryStage.setTitle("Batalla Naval");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
