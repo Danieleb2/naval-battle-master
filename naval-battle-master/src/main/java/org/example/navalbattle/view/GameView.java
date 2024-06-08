@@ -1,65 +1,87 @@
 package org.example.navalbattle.view;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.scene.Scene;
 
 /**
- * Represents the main stage of the Naval Battle game application.
- * This stage displays the game interface to the user.
+ * GameView represents the main view of the Battleship game.
  */
-public class GameView extends Stage {
+public class GameView {
+    /** The root BorderPane for the game view. */
+    private BorderPane root;
+
+    /** The stage for displaying the game view. */
+    private Stage stage;
+
     /**
-     * Constructs a new instance of GameNavalBattleStage.
+     * Constructs a GameView object with the specified stage.
      *
-     * @throws IOException if an error occurs while loading the FXML file for the game interface.
+     * @param stage The stage to display the game view.
      */
-    public GameView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/navalbattle/game-naval-battle-view.fxml"));
-        Parent root;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            // Re-throwing the caught IOException
-            throw new IOException("Error while loading FXML file", e);
-        }
+    public GameView(Stage stage) {
+        this.stage = stage;
+        initRoot();
+    }
+
+    /**
+     * Initializes the root BorderPane and sets up the background image.
+     */
+    public void initRoot() {
+        root = new BorderPane();
+        root.setPrefSize(600, 800);
+
+        // Set background image
+        BackgroundPanel backgroundPanel = new BackgroundPanel("/org/example/navalbattle/view/images/background.png");
+        root.getChildren().add(backgroundPanel);
+    }
+
+    /**
+     * Sets the right panel of the BorderPane.
+     *
+     * @param node The node to set in the right panel.
+     */
+    public void setRightPanel(javafx.scene.Node node) {
+        root.setRight(node);
+    }
+
+    /**
+     * Sets the center panel of the BorderPane.
+     *
+     * @param node The node to set in the center panel.
+     */
+    public void setCenterPanel(javafx.scene.Node node) {
+        root.setCenter(node);
+    }
+
+    /**
+     * Returns the root BorderPane of the game view.
+     *
+     * @return The root BorderPane.
+     */
+    public BorderPane getRoot() {
+        return root;
+    }
+
+    /**
+     * Initializes the stage with the game scene and sets the window title and icon.
+     */
+    public void initializeStage() {
         Scene scene = new Scene(root);
-        // Configuring the stage
-        setTitle("Batalla naval"); // Sets the title of the stage
-        setScene(scene); // Sets the scene for the stage
-        setResizable(false); // Disallows resizing of the stage
-        show(); // Displays the stage
+        stage.setScene(scene);
+
+        // Set window icon
+        Image icon = new Image(getClass().getResourceAsStream("/org/example/navalbattle/view/images/icon.png"));
+        stage.getIcons().add(icon);
+
+        stage.setTitle("Battleship");
     }
 
     /**
-     * Closes the instance of GameNavalBattleStage.
-     * This method is used to clean up resources when the game stage is no longer needed.
+     * Displays the stage.
      */
-    public static void deleteInstance() {
-        GameNavalBattleStageHolder.INSTANCE.close();
-        GameNavalBattleStageHolder.INSTANCE = null;
-    }
-
-    /**
-     * Retrieves the singleton instance of GameNavalBattleStage.
-     *
-     * @return the singleton instance of GameNavalBattleStage.
-     * @throws IOException if an error occurs while creating the instance.
-     */
-    public static GameView getInstance() throws IOException {
-        return  GameNavalBattleStageHolder.INSTANCE != null ?
-                GameNavalBattleStageHolder.INSTANCE :
-                (GameNavalBattleStageHolder.INSTANCE = new GameView());
-    }
-
-    /**
-     * Holder class for the singleton instance of GameNavalBattleStage.
-     * This class ensures lazy initialization of the singleton instance.
-     */
-    private static class GameNavalBattleStageHolder {
-        private static GameView INSTANCE;
+    public void display() {
+        stage.show();
     }
 }
