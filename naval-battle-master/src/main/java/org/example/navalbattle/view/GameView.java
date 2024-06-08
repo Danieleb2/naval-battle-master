@@ -11,13 +11,13 @@ import java.io.IOException;
  * Represents the main stage of the Naval Battle game application.
  * This stage displays the game interface to the user.
  */
-public class GameNavalBattleStage extends Stage {
+public class GameView extends Stage {
     /**
      * Constructs a new instance of GameNavalBattleStage.
      *
      * @throws IOException if an error occurs while loading the FXML file for the game interface.
      */
-    public GameNavalBattleStage() throws IOException {
+    public GameView() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/navalbattle/game-naval-battle-view.fxml"));
         Parent root;
         try {
@@ -49,10 +49,10 @@ public class GameNavalBattleStage extends Stage {
      * @return the singleton instance of GameNavalBattleStage.
      * @throws IOException if an error occurs while creating the instance.
      */
-    public static GameNavalBattleStage getInstance() throws IOException {
+    public static GameView getInstance() throws IOException {
         return  GameNavalBattleStageHolder.INSTANCE != null ?
                 GameNavalBattleStageHolder.INSTANCE :
-                (GameNavalBattleStageHolder.INSTANCE = new GameNavalBattleStage());
+                (GameNavalBattleStageHolder.INSTANCE = new GameView());
     }
 
     /**
@@ -60,6 +60,6 @@ public class GameNavalBattleStage extends Stage {
      * This class ensures lazy initialization of the singleton instance.
      */
     private static class GameNavalBattleStageHolder {
-        private static GameNavalBattleStage INSTANCE;
+        private static GameView INSTANCE;
     }
 }

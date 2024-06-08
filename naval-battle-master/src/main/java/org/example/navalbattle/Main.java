@@ -2,7 +2,7 @@ package org.example.navalbattle;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.example.navalbattle.view.GameNavalBattleStage;
+import org.example.navalbattle.view.GameView;
 import java.io.IOException;
 
 /**
@@ -32,6 +32,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Creates and initializes the main game stage
-        GameNavalBattleStage.getInstance();
+        GameView.getInstance();
     }
 }
