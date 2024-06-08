@@ -1,37 +1,42 @@
 package org.example.navalbattle;
 
+import org.example.navalbattle.controller.BattleshipController;
+import org.example.navalbattle.view.GameView;
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.navalbattle.view.GameNavalBattleStage;
-import java.io.IOException;
 
 /**
- * The Main class of the Naval Battle game application.
+ * Main class that starts the Battleship game application.
  */
 public class Main extends Application {
-
     /**
-     * The main method, launches the JavaFX application.
+     * Start method overridden from Application class.
      *
-     * @param args the command-line arguments passed to the application. They are not used in this application.
+     * @param primaryStage The primary stage of the application.
      */
-    public static void main(String[] args) {
-        // Launches the JavaFX application
-        launch();
+    @Override
+    public void start(Stage primaryStage) {
+        // Create the GameView and BattleshipController
+        GameView view = new GameView(primaryStage);
+        BattleshipController controller = new BattleshipController(view);
+
+        // Create the game content
+        controller.createContent();
+
+        // Initialize the stage with the game view
+        view.initializeStage();
+
+        // Display the stage
+        view.display();
     }
 
     /**
-     * The entry point of the application. Launches the JavaFX application.
+     * Main method that launches the application.
      *
-     * @param stage the primary stage for this application, onto which
-     *              the application scene can be set.
-     *              Applications may create other stages, if needed, but they will not be
-     *              primary stages.
-     * @throws IOException if an error occurs while loading the game stage.
+     * @param args Command line arguments.
      */
-    @Override
-    public void start(Stage stage) throws IOException {
-        // Creates and initializes the main game stage
-        GameNavalBattleStage.getInstance();
+    public static void main(String[] args) {
+        launch(args);
     }
 }

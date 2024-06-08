@@ -2,13 +2,11 @@ package org.example.navalbattle.controller;
 
 import javafx.fxml.FXML;
 
-import java.io.IOException;
-
 /**
  * Controller class for the Naval Battle game interface.
  * This class handles the initialization of the game interface.
  */
-public class GameNavalBattleController {
+public class BattleshipController {
     /**
      * Initializes the game interface.
      * This method is automatically called when the corresponding FXML file is loaded.
